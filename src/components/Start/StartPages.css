@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* > * {
+   font-family: 'Poppins', sans-serif;
+   box-sizing: border-box;
+}
+:root {
+   --text-light: #e9e9e9;
+   --text-dark: #363636;
+   --text-btn: #816df2;
+   --text-yellow: #f8e006;
+   --text-skyBlue: #70d4ff;
+   --text-selected: #34b9d3;
+   --cell-size: 100px;
+
+   --female-1: url('../../assest/f1.png');
+   --female-2: url('../../assest/f2.png');
+   --male-1: url('../../assest/m1.png');
+   --male-2: url('../../assest/m2.png');
+}
+
+* > * {
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+}
+body {
+   background: rgb(54, 54, 54);
+}
+/*------------------------------------------------------- */
+/* start page player selection */
+.primary-btn {
+   border: none;
+   background: var(--text-btn);
+   padding: 10px 20px;
+   border-radius: 10px;
+   color: var(--text-light);
+   margin-top: 2em;
+   font-size: 1.5em;
+   cursor: pointer;
+}
+
+.start-game {
+   height: 100vh;
+   background-color: var(--text-dark);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 2px;
+}
+
+.start-game.hide {
+   display: none;
+}
+/*------------------------------------------------------------ */
+/* board  */
+.container {
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.board {
+   display: grid;
+   grid-template-columns: repeat(3, auto);
+   background-color: var(--text-light);
+   row-gap: 3px;
+   column-gap: 3px;
+}
+
+.block {
+   width: var(--cell-size);
+   height: var(--cell-size);
+   background-color: rgb(54, 54, 54);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+.block.x {
+   background: var(--female-1) var(--text-skyBlue);
+   cursor: not-allowed;
+}
+.block.x2 {
+   background: var(--female-2) var(--text-skyBlue);
+   cursor: not-allowed;
+}
+.block.y {
+   background: var(--male-1) var(--text-skyBlue);
+   cursor: not-allowed;
+}
+.block.y2 {
+   background: var(--male-2) var(--text-skyBlue);
+   cursor: not-allowed;
+}
+/*------------------------------------------------ */
+/* x---female and y--male */
+
+.board.x .block:not(.x):not(.y):hover {
+   background: var(--female-1) var(--text-yellow) no-repeat;
+   opacity: 0.6;
+}
+.board.x2 .block:not(.x2):not(.y2):hover {
+   background: var(--female-2) var(--text-yellow) no-repeat;
+   opacity: 0.6;
+}
+.board.y .block:not(.y):not(.x):hover {
+   background: var(--male-1) var(--text-yellow) no-repeat;
+   opacity: 0.6;
+}
+.board.y2 .block:not(.y2):not(.x2):hover {
+   background: var(--male-2) var(--text-yellow) no-repeat;
+   opacity: 0.6;
+}
+
+/* Draw window  */
+
+.start-game,
+.draw-msg,
+.winner-msg {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: rgb(17 17 17 / 95%);
+}
+
+.text-center.text-yellow {
+   color: var(--text-yellow);
+}
+
+.draw-msg,
+.winner-msg {
+   display: none;
+}
+.draw-msg.show,
+.winner-msg.show {
+   display: flex;
+}
+
+/* player selection background */
+.start-game .profile .img > img.selected {
+   background-color: var(--text-selected);
+   border: 2px solid var(--text-light);
+   border-radius: 10px;
+}
+
+.img {
+   display: flex;
+   gap: 2px;
+   margin-bottom: 2px;
+}
