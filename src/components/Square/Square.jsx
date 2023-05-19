@@ -1,7 +1,8 @@
-export default function Square({ value, onSquareClick }) {
+export default function Square({ value, onSquareClick, highlight }) {
+   //console.log('highlight------------>', highlight);
    return (
-      <button className='square' onClick={onSquareClick}>
-         {value}
-      </button>
+      <button
+         className={`block ${value} ${highlight ? 'highlight' : ''}`}
+         onClick={onSquareClick}></button>
    );
 }

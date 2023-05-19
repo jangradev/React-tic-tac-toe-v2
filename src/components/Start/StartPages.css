@@ -9,6 +9,8 @@
    --text-btn: #816df2;
    --text-yellow: #f8e006;
    --text-skyBlue: #70d4ff;
+   --text-green: #04f939;
+   --text-brown: #ff8400;
    --text-selected: #34b9d3;
    --cell-size: 100px;
 
@@ -51,6 +53,7 @@ body {
 .start-game.hide {
    display: none;
 }
+
 /*------------------------------------------------------------ */
 /* board  */
 .container {
@@ -77,21 +80,42 @@ body {
    align-items: center;
    cursor: pointer;
 }
+/* Add responsive styles for mobile screens */
+@media (max-width: 600px) {
+   .block {
+      width: 80px;
+      height: 80px;
+   }
+}
+
 .block.x {
-   background: var(--female-1) var(--text-skyBlue);
+   background: var(--female-1) var(--text-green);
    cursor: not-allowed;
 }
 .block.x2 {
-   background: var(--female-2) var(--text-skyBlue);
+   background: var(--female-2) var(--text-green);
    cursor: not-allowed;
 }
 .block.y {
-   background: var(--male-1) var(--text-skyBlue);
+   background: var(--male-1) var(--text-brown);
    cursor: not-allowed;
 }
 .block.y2 {
-   background: var(--male-2) var(--text-skyBlue);
+   background: var(--male-2) var(--text-brown);
    cursor: not-allowed;
+}
+
+.block.x.hide {
+   display: none;
+}
+.block.x2.hide {
+   display: none;
+}
+.block.y.hide {
+   display: none;
+}
+.block.y2.hide {
+   display: none;
 }
 /*------------------------------------------------ */
 /* x---female and y--male */
@@ -154,4 +178,51 @@ body {
    display: flex;
    gap: 2px;
    margin-bottom: 2px;
+}
+
+/*-------------------------- */
+.start-game .profile .img > img:hover {
+   background-color: var(--text-yellow);
+   border-radius: 10px;
+}
+.disable-hover:hover {
+   /* Define the styles for the disabled hover effect */
+   cursor: not-allowed;
+   background: var(--text-yellow) no-repeat;
+   /* Add any other styles as needed */
+}
+/*---------------------------------- */
+.start-game,
+.draw-msg,
+.winner-msg {
+   position: fixed;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(49, 49, 49, 0.938);
+}
+
+.draw-msg,
+.winner-msg {
+   display: none;
+}
+
+.draw-msg.show,
+.winner-msg.show {
+   display: flex;
+}
+
+.start-game .profile .img > img.selected {
+   background-color: var(--text-selected);
+   border: 2px solid var(--text-light);
+   border-radius: 20px;
+}
+
+.highlight {
+   background-color: var(--text-selected) !important;
 }

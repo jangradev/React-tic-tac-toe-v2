@@ -8,12 +8,12 @@ export default function Game() {
    const currentSquares = history[currentMove];
 
    function handlePlay(nextSquares) {
-      console.log(currentMove);
+      //console.log(currentMove);
 
       const lastHistory = history.slice(0, currentMove + 1);
       const nextHistory = [...lastHistory, nextSquares];
       //const nextHistory = [...history, nextSquares];
-      console.log('History--', lastHistory);
+      // console.log('History--', lastHistory);
       setHistory(nextHistory);
       setCurrentMove(nextHistory.length - 1);
    }
