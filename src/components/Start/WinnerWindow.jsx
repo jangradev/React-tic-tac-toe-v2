@@ -1,5 +1,4 @@
-const WinnerWindow = ({ winner, showHandler, startClassRef }) => {
-   //console.log('rendered');
+const WinnerWindow = ({ winner, showHandler }) => {
    return (
       <div className={`winner-msg ${winner ? 'show' : ''} `}>
          <h1 className='text-center text-yellow'>Winner</h1>

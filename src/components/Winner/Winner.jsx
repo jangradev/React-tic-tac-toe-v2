@@ -17,10 +17,11 @@ export default function Winner(squares) {
          squares[a] === squares[b] &&
          squares[a] === squares[c]
       ) {
-         // console.log('lines--->', lines[i]);
+         // line[i] gives the winner combination
          return { line: lines[i], winner: squares[a] } || {};
       }
    }
+   // this will be used for show/hide <Draw/> component
    const isDraw = squares.filter((square) => !square).length === 0;
    if (isDraw) {
       return { draw: true };

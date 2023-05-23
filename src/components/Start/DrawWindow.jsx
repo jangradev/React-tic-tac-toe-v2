@@ -1,8 +1,8 @@
-const DrawWindow = ({ draw, drawHandler }) => {
-   //console.log('Received draw----------------------->', draw);
+const DrawWindow = ({ draw, showHandler }) => {
+   /*--- if we need to invoked more than 2 or 3 handler then use separate handler ---*/
+   // Call the resetSelectedPlayer function from props
    function handleRestart() {
-      // Call the resetSelectedPlayer function from props
-      drawHandler(); // Call the drawHandler function to handle the restart
+      showHandler(); // Call the drawHandler function to handle the restart
    }
    return (
       <div className={`draw-msg ${draw ? 'show' : ''} `}>

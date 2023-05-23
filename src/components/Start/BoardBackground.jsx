@@ -4,50 +4,21 @@ import Square from '../Square/Square';
 import DrawWindow from './DrawWindow';
 
 import WinnerWindow from './WinnerWindow';
+import useShowWindow from '../customHooks/useShowWindow';
 
 const BoardBackground = ({
    player1,
    player2,
    squares,
    isNext,
-   handleClick,
+   onSquareClick,
    winner,
    line,
    showHandler,
-   drawHandler,
    draw,
 }) => {
-   const [showWinner, setShowWinner] = useState(false);
-   const [showDraw, setShowDraw] = useState(false);
-   useEffect(() => {
-      if (winner) {
-         // Delay showing the winner for 1.5 seconds
-         const delay = setTimeout(() => {
-            setShowWinner(true);
-         }, 1500);
-
-         return () => clearTimeout(delay);
-         // Clear the timeout if the component unmounts or winner changes
-      }
-   }, [winner]);
-
-   useEffect(() => {
-      if (draw) {
-         // Delay showing the winner for 1.5 seconds
-         const delay = setTimeout(() => {
-            setShowDraw(true);
-         }, 1500);
-
-         return () => clearTimeout(delay);
-         // Clear the timeout if the component unmounts or winner changes
-      }
-   }, [draw]);
-
-   useEffect(() => {
-      // Reset showWinner state when the game is restarted
-      setShowWinner(false);
-      setShowDraw(false);
-   }, [squares]);
+   const showWinner = useShowWindow(winner, 1500);
+   const showDraw = useShowWindow(draw, 1500);
 
    return (
       <>
@@ -61,7 +32,7 @@ const BoardBackground = ({
                   <Square
                      key={index}
                      value={value}
-                     onSquareClick={() => handleClick(index)}
+                     onSquareClick={() => onSquareClick(index)} // passing function
                      highlight={line && line.includes(index)} // Check if index is in the line array
                   />
                ))}
@@ -70,7 +41,7 @@ const BoardBackground = ({
          {showWinner && (
             <WinnerWindow winner={winner} showHandler={showHandler} />
          )}
-         {showDraw && <DrawWindow draw={draw} drawHandler={drawHandler} />}
+         {showDraw && <DrawWindow draw={draw} showHandler={showHandler} />}
       </>
    );
 };
