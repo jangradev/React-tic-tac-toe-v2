@@ -1,4 +1,8 @@
-const WinnerWindow = ({ winner, showHandler }) => {
+const WinnerWindow = ({ winner, showHandler, resetShowWindow }) => {
+   const handleRestartClick = () => {
+      showHandler(false); // Hide the WinnerWindow
+      resetShowWindow(); // Call the reset function to reset the showWindow state
+   };
    return (
       <div className={`winner-msg ${winner ? 'show' : ''} `}>
          <h1 className='text-center text-yellow'>Winner</h1>

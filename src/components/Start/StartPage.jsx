@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './StartPages.css';
 import female1 from '../../assest/f1.png';
 import female2 from '../../assest/f2.png';
@@ -82,7 +82,7 @@ export default function StartPage() {
          value.classList.contains('selected')
       ); // this will give us true and false result
 
-      const selectedKey = selectedEntry ? selectedEntry[0] : null;
+      //const selectedKey = selectedEntry ? selectedEntry[0] : null;
       const selectedValue = selectedEntry ? selectedEntry[1] : null;
 
       selectedValue?.classList.remove('selected');

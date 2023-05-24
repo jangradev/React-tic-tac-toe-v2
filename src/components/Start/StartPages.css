@@ -175,7 +175,7 @@ body {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   background: rgb(17 17 17 / 95%);
+   background: rgb(17 17 17 / 99%);
 }
 
 .text-center.text-yellow {
@@ -202,9 +202,9 @@ body {
    right: 0;
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: bottom;
    align-items: center;
-   background-color: rgba(49, 49, 49, 0.938);
+   background-color: rgba(49, 49, 49, 0.888);
 }
 
 .draw-msg,

@@ -22,9 +22,11 @@ export default function Winner(squares) {
       }
    }
    // this will be used for show/hide <Draw/> component
+   //console.log('squares---', squares);
    const isDraw = squares.filter((square) => !square).length === 0;
    if (isDraw) {
       return { draw: true };
    }
+   //console.log(isDraw);
    return {};
 }

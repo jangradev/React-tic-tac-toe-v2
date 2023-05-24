@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
-
 import Square from '../Square/Square';
 import DrawWindow from './DrawWindow';
-
+import { useState, useEffect } from 'react';
 import WinnerWindow from './WinnerWindow';
 import useShowWindow from '../customHooks/useShowWindow';
 
@@ -17,8 +15,40 @@ const BoardBackground = ({
    showHandler,
    draw,
 }) => {
-   const showWinner = useShowWindow(winner, 1500);
-   const showDraw = useShowWindow(draw, 1500);
+   // const [showWinnerWindow, setShowWinnerWindow] = useState(false);
+   // const [showDrawWindow, setShowDrawWindow] = useState(false);
+
+   // useEffect(() => {
+   //    let winnerTimeoutId;
+   //    let drawTimeoutId;
+
+   //    if (winner) {
+   //       setShowWinnerWindow(false);
+
+   //       winnerTimeoutId = setTimeout(() => {
+   //          setShowWinnerWindow(true);
+   //       }, 1000); // Change the delay time as desired
+   //    }
+
+   //    if (draw) {
+   //       setShowDrawWindow(false);
+
+   //       drawTimeoutId = setTimeout(() => {
+   //          setShowDrawWindow(true);
+   //       }, 1000); // Change the delay time as desired
+   //    }
+
+   //    return () => {
+   //       console.log('timer', winnerTimeoutId);
+   //       clearTimeout(winnerTimeoutId);
+   //       clearTimeout(drawTimeoutId);
+   //    };
+   // }, [winner, draw]);
+
+   // console.log('Show-->', showWinnerWindow);
+
+   let showWinnerWindow = useShowWindow(winner, 1500);
+   let showDrawWindow = useShowWindow(draw, 1500);
 
    return (
       <>
@@ -38,10 +68,12 @@ const BoardBackground = ({
                ))}
             </div>
          </div>
-         {showWinner && (
+         {showWinnerWindow && (
             <WinnerWindow winner={winner} showHandler={showHandler} />
          )}
-         {showDraw && <DrawWindow draw={draw} showHandler={showHandler} />}
+         {showDrawWindow && (
+            <DrawWindow draw={draw} showHandler={showHandler} />
+         )}
       </>
    );
 };
