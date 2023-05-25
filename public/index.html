@@ -2,6 +2,7 @@
 <html lang="en">
    <head>
       <meta charset="utf-8" />
+      <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
       <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#000000" />
@@ -9,11 +10,14 @@
          name="description"
          content="Web site created using create-react-app" />
       <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-      <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
       <title>Tic Tac Toe</title>
    </head>
    <body>
-      <noscript>You need to enable JavaScript to run this app.</noscript>
       <div id="root"></div>
+      <!-- Import React before the bundle -->
+      <script src="https://unpkg.com/react@latest/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@latest/umd/react-dom.development.js"></script>
+
+      <noscript>You need to enable JavaScript to run this app.</noscript>
    </body>
 </html>

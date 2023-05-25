@@ -9,7 +9,9 @@
    --text-btn: #816df2;
    --text-yellow: #f8e006;
    --text-skyBlue: #70d4ff;
-   --text-selected: #34b9d3;
+   --text-green: #04f939;
+   --text-brown: #ff8400;
+   --text-selected: #dd00ff;
    --cell-size: 100px;
 
    --female-1: url('../../assest/f1.png');
@@ -51,6 +53,7 @@ body {
 .start-game.hide {
    display: none;
 }
+
 /*------------------------------------------------------------ */
 /* board  */
 .container {
@@ -77,21 +80,54 @@ body {
    align-items: center;
    cursor: pointer;
 }
+/* Add responsive styles for mobile screens */
+@media (max-width: 600px) {
+   .block {
+      width: 80px;
+      height: 80px;
+   }
+}
+
 .block.x {
-   background: var(--female-1) var(--text-skyBlue);
+   background: var(--female-1) var(--text-green);
    cursor: not-allowed;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
 }
 .block.x2 {
-   background: var(--female-2) var(--text-skyBlue);
+   background: var(--female-2) var(--text-green);
    cursor: not-allowed;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
 }
 .block.y {
-   background: var(--male-1) var(--text-skyBlue);
+   background: var(--male-1) var(--text-brown);
    cursor: not-allowed;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
 }
 .block.y2 {
-   background: var(--male-2) var(--text-skyBlue);
+   background: var(--male-2) var(--text-brown);
    cursor: not-allowed;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
+}
+
+.block.x.hide {
+   display: none;
+}
+.block.x2.hide {
+   display: none;
+}
+.block.y.hide {
+   display: none;
+}
+.block.y2.hide {
+   display: none;
 }
 /*------------------------------------------------ */
 /* x---female and y--male */
@@ -99,18 +135,30 @@ body {
 .board.x .block:not(.x):not(.y):hover {
    background: var(--female-1) var(--text-yellow) no-repeat;
    opacity: 0.6;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
 }
 .board.x2 .block:not(.x2):not(.y2):hover {
    background: var(--female-2) var(--text-yellow) no-repeat;
    opacity: 0.6;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
 }
 .board.y .block:not(.y):not(.x):hover {
    background: var(--male-1) var(--text-yellow) no-repeat;
    opacity: 0.6;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
 }
 .board.y2 .block:not(.y2):not(.x2):hover {
    background: var(--male-2) var(--text-yellow) no-repeat;
    opacity: 0.6;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
 }
 
 /* Draw window  */
@@ -127,7 +175,7 @@ body {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   background: rgb(17 17 17 / 95%);
+   background: rgb(17 17 17 / 99%);
 }
 
 .text-center.text-yellow {
@@ -143,15 +191,75 @@ body {
    display: flex;
 }
 
-/* player selection background */
-.start-game .profile .img > img.selected {
-   background-color: var(--text-selected);
-   border: 2px solid var(--text-light);
-   border-radius: 10px;
+/*---------------------------------- */
+.start-game,
+.draw-msg,
+.winner-msg {
+   position: fixed;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: bottom;
+   align-items: center;
+   background-color: rgba(49, 49, 49, 0.888);
 }
 
-.img {
+.draw-msg,
+.winner-msg {
+   display: none;
+}
+
+.draw-msg.show,
+.winner-msg.show {
    display: flex;
-   gap: 2px;
-   margin-bottom: 2px;
+}
+
+.highlight {
+   background-color: var(--text-selected) !important;
+}
+
+/*---------------------------- */
+
+.start-game {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.text-light {
+   color: #ffffff;
+}
+
+.profile {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   justify-content: center;
+   gap: 10px;
+}
+
+.profile img {
+   cursor: pointer;
+}
+
+.profile img.selected {
+   background-color: #fffb03;
+   border-radius: 10px;
+   cursor: not-allowed;
+}
+
+.primary-btn {
+   margin-top: 20px;
+   padding: 10px 20px;
+   background-color: #007bff;
+   color: #ffffff;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.primary-btn:hover {
+   background-color: #0056b3;
 }

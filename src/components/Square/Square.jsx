@@ -1,7 +1,8 @@
-export default function Square({ value, onSquareClick }) {
+import '../../components/Start/StartPages.css';
+export default function Square({ value, onSquareClick, highlight }) {
    return (
-      <button className='square' onClick={onSquareClick}>
-         {value}
-      </button>
+      <button
+         className={`block ${value} ${highlight ? 'highlight' : ''}`}
+         onClick={onSquareClick}></button>
    );
 }
