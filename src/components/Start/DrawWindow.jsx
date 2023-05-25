@@ -1,10 +1,8 @@
-const DrawWindow = ({ draw, showHandler, resetShowWindow }) => {
+import './StartPages.css';
+const DrawWindow = ({ draw, showHandler }) => {
    /*--- if we need to invoked more than 2 or 3 handler then use separate handler ---*/
    // Call the resetSelectedPlayer function from props
-   function handleRestart() {
-      showHandler(); // Call the drawHandler function to handle the restart
-      resetShowWindow();
-   }
+
    return (
       <div className={`draw-msg ${draw ? 'show' : ''} `}>
          <div className='draw'>

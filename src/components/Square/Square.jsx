@@ -1,3 +1,4 @@
+import '../../components/Start/StartPages.css';
 export default function Square({ value, onSquareClick, highlight }) {
    return (
       <button

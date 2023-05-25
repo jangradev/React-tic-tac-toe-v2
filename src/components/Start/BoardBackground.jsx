@@ -1,8 +1,12 @@
+import './StartPages.css';
 import Square from '../Square/Square';
 import DrawWindow from './DrawWindow';
-import { useState, useEffect } from 'react';
 import WinnerWindow from './WinnerWindow';
 import useShowWindow from '../customHooks/useShowWindow';
+import '../../assest/f1.png';
+import '../../assest/f2.png';
+import '../../assest/m1.png';
+import '../../assest/m2.png';
 
 const BoardBackground = ({
    player1,
@@ -15,38 +19,6 @@ const BoardBackground = ({
    showHandler,
    draw,
 }) => {
-   // const [showWinnerWindow, setShowWinnerWindow] = useState(false);
-   // const [showDrawWindow, setShowDrawWindow] = useState(false);
-
-   // useEffect(() => {
-   //    let winnerTimeoutId;
-   //    let drawTimeoutId;
-
-   //    if (winner) {
-   //       setShowWinnerWindow(false);
-
-   //       winnerTimeoutId = setTimeout(() => {
-   //          setShowWinnerWindow(true);
-   //       }, 1000); // Change the delay time as desired
-   //    }
-
-   //    if (draw) {
-   //       setShowDrawWindow(false);
-
-   //       drawTimeoutId = setTimeout(() => {
-   //          setShowDrawWindow(true);
-   //       }, 1000); // Change the delay time as desired
-   //    }
-
-   //    return () => {
-   //       console.log('timer', winnerTimeoutId);
-   //       clearTimeout(winnerTimeoutId);
-   //       clearTimeout(drawTimeoutId);
-   //    };
-   // }, [winner, draw]);
-
-   // console.log('Show-->', showWinnerWindow);
-
    let showWinnerWindow = useShowWindow(winner, 1500);
    let showDrawWindow = useShowWindow(draw, 1500);
 

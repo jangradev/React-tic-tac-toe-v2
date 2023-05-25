@@ -13,7 +13,6 @@ const useShowWindow = (value, delayTime) => {
             setShowWindow(true);
          }, delayTime);
       }
-
       return () => clearTimeout(delay);
    }, [value, delayTime]);
    return showWindow;
